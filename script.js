@@ -1,3 +1,4 @@
+// DOM
 const swiper = document.querySelector('#swiper');
 const like = document.querySelector('#like');
 const dislike = document.querySelector('#dislike');
@@ -41,3 +42,4 @@ function appendNewCard() {
 for (let i = 0; i < 5; i++) {
   appendNewCard();
 }
+
