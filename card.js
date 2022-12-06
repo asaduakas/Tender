@@ -3,12 +3,14 @@ class Card {
     imageUrl,
     onDismiss,
     onLike,
-    onDislike
+    onDislike,
+    prompt
   }) {
     this.imageUrl = imageUrl;
     this.onDismiss = onDismiss;
     this.onLike = onLike;
     this.onDislike = onDislike;
+    this.prompt = prompt;
     this.#init();
   }
 
