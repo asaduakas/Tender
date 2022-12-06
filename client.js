@@ -17,13 +17,13 @@ const rawData = [
   [false,'https://source.unsplash.com/random/1000x1000/?pastry', 'Pastry?'],
   [false,'https://source.unsplash.com/random/1000x1000/?jelly', 'Something chewy?'],
   [true,'https://source.unsplash.com/random/1000x1000/?banana', 'Jeez, you are not hungry then! Just go eat a banana or something...'],
-  [true,'/assets/images/Nicoise-Salad.jpg', 'Salad Nicoise'],
+  [true,'./assets/images/Nicoise-Salad.jpg', 'Salad Nicoise'],
   [true,'https://source.unsplash.com/random/1000x1000/?cheeseburger', 'Cheeseburger'],
   [true,'https://source.unsplash.com/random/1000x1000/?banana', 'Sweet and sour chicken'],
   [true,'https://source.unsplash.com/random/1000x1000/?cookies', 'Cookies'],
   [true,'https://source.unsplash.com/random/1000x1000/?cherry-pie', 'Cherry pie'],
   [true,'https://source.unsplash.com/random/1000x1000/?gelato', 'Gelato'],
-  [true,'/assets/images/banoffee-cream-pudding-with-white-choc-crumble.jpg', 'Banana and date pudding with hazelnut butterscotch']
+  [true,'./assets/images/banoffee-cream-pudding-with-white-choc-crumble.jpg', 'Banana and date pudding with hazelnut butterscotch']
 ];
 
 let root;
