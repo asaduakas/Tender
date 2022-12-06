@@ -1,6 +1,5 @@
 class Node {
-    constructor(index, terminal, image, prompt) {
-      this.index = index;
+    constructor(terminal, image, prompt) {
       this.terminal = terminal;
       this.image = image;
       this.prompt = prompt;

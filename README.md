@@ -1,3 +1,3 @@
 # Tender
 
-**Online demo: https://asaduakas.github.io/Tender/main.html**
+**Online demo: https://asaduakas.github.io/Tender/index.html**

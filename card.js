@@ -4,13 +4,15 @@ class Card {
     onDismiss,
     onLike,
     onDislike,
-    prompt
+    prompt,
+    node
   }) {
     this.imageUrl = imageUrl;
     this.onDismiss = onDismiss;
     this.onLike = onLike;
     this.onDislike = onDislike;
     this.prompt = prompt;
+    this.node = node;
     this.#init();
   }
 
@@ -110,6 +112,7 @@ class Card {
   }
 
   #dismiss = (direction) => {
+    console.log("dissmised has been called");
     this.#startPoint = null;
     document.removeEventListener('mouseup', this.#handleMoveUp);
     document.removeEventListener('mousemove', this.#handleMouseMove);
@@ -126,9 +129,11 @@ class Card {
     }
     if (typeof this.onLike === 'function' && direction === 1) {
       this.onLike();
+      currentNode = currentNode.right;
     }
     if (typeof this.onDislike === 'function' && direction === -1) {
       this.onDislike();
+      currentNode = currentNode.left;
     }
   }
 }
