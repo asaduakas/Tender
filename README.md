@@ -1,3 +1,3 @@
-# card-swiper
+# Tender
 
-**Online demo: https://codesteppe.github.io/card-swiper/**
+**Online demo: https://asaduakas.github.io/Tender/main.html**
