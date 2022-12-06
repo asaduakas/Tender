@@ -3,6 +3,9 @@ const swiper = document.querySelector('#swiper');
 const like = document.querySelector('#like');
 const dislike = document.querySelector('#dislike');
 let prompt = document.querySelector('#prompt');
+const buttons = document.querySelector('.ldbuttons');
+const main = document.querySelector('.fs-main');
+const navbar = document.querySelector('.f-ai-center');
 
 //Raw data
 const rawData = [
@@ -35,30 +38,80 @@ function insertLevelOrder(arr, i)
             root.left = insertLevelOrder(arr, 2 * i + 1);
     
             // insert right child
-            root.right = insertLevelOrder(arr, 2 * i + 2);
+            root.right = insertLevelOrder(arr, 2 * i + 2);  
         }
         return root;
 }
 
 let currentNode = insertLevelOrder(rawData, 0);
 
+function initAnswer(){
+  //creating image
+  const img = document.createElement('img');
+  img.src = currentNode.image;
+  img.setAttribute('class', 'answerImg');
+  main.setAttribute('style', 'padding: 0; box-sizing:border-box;position:absolute');
+  navbar.setAttribute('style', 'padding: 20px;');
+  main.appendChild(img);
+
+  //creating container for prompt and description
+  const container = document.createElement('div');
+  container.setAttribute('class', 'container');
+  container.setAttribute('class', 'answerContainer');
+
+  //creating prompt and description
+  const prompt = document.createElement('h1');
+  prompt.innerHTML = currentNode.prompt;
+  prompt.setAttribute('class', 'answerPrompt');
+  
+  const recipe = document.createElement('h2');
+  const recipeText = document.createElement('p');
+  recipe.innerHTML = 'Recipe';
+  recipeText.innerHTML = 'This is a recipe of the dish. It is a very delicious dish. You should try it.';
+  recipeText.setAttribute('class', 'answerPrompt');
+  recipe.setAttribute('class', 'answerPrompt');
+  container.appendChild(prompt);
+  container.appendChild(recipe);
+  container.appendChild(recipeText);
+  
+  //creating description
+  
+  main.appendChild(container);
+}
+
 function appendNewCard() {
   const card = new Card({
     imageUrl: currentNode.image,
     onDismiss: appendNewCard,
     onLike: () => {
-      console.log("Liked");
       like.style.animationPlayState = 'running';
       like.classList.toggle('trigger');
-      currentNode = currentNode.right;
-      console.log(card.element);
+      if(currentNode.terminal == true){
+        swiper.style.visibility = 'hidden';
+        swiper.addEventListener('animationend', () => {
+          swiper.remove();
+          buttons.remove();
+          initAnswer();
+        });
+        prompt.remove();
+        swiper.classList.add("movingLeft");
+        buttons.classList.add("movingDown");
+      }
     },
     onDislike: () => {
-      console.log("disiked");
       dislike.style.animationPlayState = 'running';
       dislike.classList.toggle('trigger');
-      currentNode = currentNode.left;
-      console.log(card.element);
+      if(currentNode.terminal == true){
+        swiper.style.visibility = 'hidden';
+        swiper.addEventListener('animationend', () => {
+          swiper.remove();
+          buttons.remove();
+          initAnswer();
+        });
+        prompt.remove();
+        swiper.classList.add("movingLeft");
+        buttons.classList.add("movingDown");
+      }
     },
     prompt: currentNode.prompt
   });

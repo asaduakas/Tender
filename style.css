@@ -77,6 +77,39 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
+.movingLeft{
+  position: absolute;
+  animation-name: moveLeft;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-500px);
+  }
+}
+
+.movingDown{
+  animation-name: moveDown;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes moveDown {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(500px);
+  }
+}
+
 @keyframes animation1 {
 
   0%,
@@ -159,8 +192,7 @@ body{
   flex-direction: column;
   height: 100%;
   flex-wrap: nowrap;
-  align-content: center;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -175,6 +207,11 @@ body{
 .f-ai-center{
   display: flex;
   align-items:center;
+}
+
+.ai-fs{
+  display: flex;
+  align-items: flex-start;
 }
 
 .swipe {
@@ -192,9 +229,30 @@ body{
   position: relative;
 }
 
+.answerImg{
+  height: 60%;
+  box-sizing: border-box;
+}
 
+.answerContainer{
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 100%;
+  background-color: azure;
+  border-radius: 50px;
+  top: -150px;
+}
 
-
+.answerPrompt{
+  color: black;
+  text-align: left;
+  padding: 20px;
+}
 
 
 

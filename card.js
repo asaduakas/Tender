@@ -31,7 +31,9 @@ class Card {
     const card = document.createElement('div');
     card.classList.add('card');
     const img = document.createElement('img');
-    img.src = this.imageUrl;
+    if(currentNode.terminal == false){
+      img.src = this.imageUrl;
+    }
     card.append(img);
     this.element = card;
     if (this.#isTouchDevice()) {
@@ -112,7 +114,12 @@ class Card {
   }
 
   #dismiss = (direction) => {
-    console.log("dissmised has been called");
+    if(direction == 1){
+      currentNode = currentNode.right;
+   }
+   if(direction == -1){
+      currentNode = currentNode.left;
+   }
     this.#startPoint = null;
     document.removeEventListener('mouseup', this.#handleMoveUp);
     document.removeEventListener('mousemove', this.#handleMouseMove);
@@ -129,11 +136,12 @@ class Card {
     }
     if (typeof this.onLike === 'function' && direction === 1) {
       this.onLike();
-      currentNode = currentNode.right;
     }
     if (typeof this.onDislike === 'function' && direction === -1) {
       this.onDislike();
-      currentNode = currentNode.left;
     }
+    // if(currentNode.terminal == true){
+    //   window.location.href = "./answer.html";
+    // }
   }
 }
