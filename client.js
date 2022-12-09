@@ -70,9 +70,22 @@ function initAnswer(){
   recipeText.innerHTML = 'This is a recipe of the dish. It is a very delicious dish. You should try it.';
   recipeText.setAttribute('class', 'answerPrompt');
   recipe.setAttribute('class', 'answerPrompt');
+
+  var strs = [ "Eggs", "Milk", "1/2 pound beef", "3/4 teaspoon of olive oil"];
+  var list = document.createElement("ul");
+  for (var i in strs) {
+    var p = document.createElement("p");
+    p.innerText = strs[i];
+
+    var elem = document.createElement("li");
+    elem.appendChild(p);
+    list.appendChild(elem);
+  }
+
   container.appendChild(prompt);
   container.appendChild(recipe);
   container.appendChild(recipeText);
+  container.appendChild(list);
   
   //creating description
   

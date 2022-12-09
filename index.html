@@ -27,10 +27,15 @@
       </div>
       
       <div class="container buttons">   
-        <a href="main.html" class="btn btn-lg btn-primary shrink">START</a> 
-         <button type="button" class="btn btn-secondary shrink">Help</button>
+        <a href="main.html" class="shrink buttonMenu">START</a> 
+         <button type="button" class="shrink buttonMenu" style="width: 50%; color: black;" onclick="showInstructions()">Help</button>
       </div>
-      
+
+      <script>
+        function showInstructions(){
+          alert("Press start to begin. Answer short prompts to figure out what you want to eat. Swipe right to say yes and swipe left to say no. Press the left arrow button in th top left part of the screen to go back to the main menu. Press the reset button in the top right part of the screen to start over.");
+        }
+      </script>
     </div>
   </body>
 </html>

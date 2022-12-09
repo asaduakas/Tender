@@ -90,7 +90,7 @@ body {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(-500px);
+    transform: translateX(-580px);
   }
 }
 
@@ -107,6 +107,15 @@ body {
   }
   100% {
     transform: translateY(500px);
+  }
+}
+
+@keyframes moveUp{
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-435px);
   }
 }
 
@@ -230,8 +239,17 @@ body{
 }
 
 .answerImg{
-  height: 60%;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: relative;
+  right: -580px;
   box-sizing: border-box;
+  animation-name: moveLeft;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
 .answerContainer{
@@ -245,15 +263,51 @@ body{
   height: 100%;
   background-color: azure;
   border-radius: 50px;
-  top: -150px;
+  top: 400px;
+  animation: moveUp;
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: forwards;
 }
 
 .answerPrompt{
   color: black;
   text-align: left;
-  padding: 20px;
+  padding: 10px;
 }
 
+.buttonMenu{
+ display:inline-block;
+ padding: 0.5em 3em;
+ border: 0.16em solid #FFFFFF;
+ border-radius: 80em;
+ margin: 0 0.3em 0.3em 0;
+ box-sizing: border-box;
+ text-decoration: none;
+ text-transform: uppercase;
+ font-family: 'Roboto',sans-serif;
+ font-weight: 400;
+ color: #FFFFFF;
+ text-align: center;
+ transition: all 0.15s;
+}
+
+.buttonMenu:hover{
+  color:#DDDDDD;
+  border-color:#DDDDDD;
+}
+
+.buttonMenu:active{
+  color:#BBBBBB;
+  border-color:#BBBBBB;
+}
+
+@media all and (max-width:30em){
+  a.buttonMenu{
+  display:block;
+  margin:0.4em auto;
+  }
+}
 
 
 
