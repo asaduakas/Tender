@@ -115,7 +115,7 @@ body {
     transform: translateY(0);
   }
   100% {
-    transform: translateY(-435px);
+    transform: translateY(-420px);
   }
 }
 
